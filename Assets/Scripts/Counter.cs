@@ -6,12 +6,14 @@ public class Counter : MonoBehaviour
 {
     public int counter;
     private int onCount = 0;
+    public bool solved;
 
     static public Counter Instance;
 
     private void Awake()
     {
         Instance = this;
+        solved = false;
     }
 
     public void wiresConnect(int points)
@@ -19,6 +21,7 @@ public class Counter : MonoBehaviour
         onCount += points;
         if (onCount == counter)
         {
+            solved = true;
             Invoke("destroy", 1.0f);
             Debug.Log("Everything's done");
         }
@@ -26,6 +29,6 @@ public class Counter : MonoBehaviour
 
     private void destroy()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

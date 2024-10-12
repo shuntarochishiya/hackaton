@@ -6,10 +6,19 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour
 {
     [SerializeField] private GameObject puzzle;
+    [SerializeField] Counter counter;
 
     private void Start()
     {
         puzzle.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (counter.solved)
+        {
+            Destroy(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

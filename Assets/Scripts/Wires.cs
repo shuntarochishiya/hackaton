@@ -9,10 +9,14 @@ public class Wires : MonoBehaviour
     public SpriteRenderer wireEnd;
     public GameObject lightOn;
 
+    [SerializeField] private AudioClip connected;
+    private AudioSource audioSource;
+
     private void Start()
     {
         startPosition = transform.position;
         startPoint = transform.parent.position + new Vector3(0, .22f, 0);   
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnMouseDrag()
@@ -44,6 +48,9 @@ public class Wires : MonoBehaviour
     {
         lightOn.SetActive(true);
         Debug.Log("Connected successfully");
+
+        audioSource.clip = connected;
+        audioSource.Play();
 
         Counter.Instance.wiresConnect(1);
 
