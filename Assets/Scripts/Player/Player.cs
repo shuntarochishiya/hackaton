@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
     private HealthSystem _healthSystem;
+    [SerializeField] private AnimationController animationController;
+
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.velocity = _movementInput * _speed;
+        animationController.AnimateObject("Direction", AnimationController.getDirection(_movementInput));
     }
 
     private void Update()
