@@ -16,6 +16,11 @@ public class Movement : MonoBehaviour
 
     public HealthSystem healthBar;
 
+    public GameObject Puzzle;
+
+    public Animator anim;
+
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -52,6 +57,72 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("Dead");
         }
+
+        if (_rigidbody.velocity.y > 0.01f && _rigidbody.velocity.x > 0.01f)
+        {
+            anim.SetBool("NE", true);
+        }
+        else
+        {
+            anim.SetBool("NE", false);
+        }
+        if (_rigidbody.velocity.y < -0.01f && _rigidbody.velocity.x > 0.01f)
+        {
+            anim.SetBool("SE", true);
+        }
+        else
+        {
+            anim.SetBool("SE", false);
+        }
+        if (_rigidbody.velocity.y < -0.01f && _rigidbody.velocity.x < -0.01f)
+        {
+            anim.SetBool("SW", true);
+        }
+        else
+        {
+            anim.SetBool("SW", false);
+        }
+        if (_rigidbody.velocity.y > 0.01f && _rigidbody.velocity.x < -0.01f)
+        {
+            anim.SetBool("NW", true);
+        }
+        else
+        {
+            anim.SetBool("NW", false);
+        }
+
+        if (_rigidbody.velocity.y > 0.01f && _rigidbody.velocity.x == 0f)
+        {
+            anim.SetBool("N", true);
+        }
+        else
+        {
+            anim.SetBool("N", false);
+        }
+        if (_rigidbody.velocity.y < -0.01f && _rigidbody.velocity.x == 0f)
+        {
+            anim.SetBool("S", true);
+        }
+        else
+        {
+            anim.SetBool("S", false);
+        }
+        if (_rigidbody.velocity.x > 0.01f && _rigidbody.velocity.y == 0f)
+        {
+            anim.SetBool("E", true);
+        }
+        else
+        {
+            anim.SetBool("E", false);
+        }
+        if (_rigidbody.velocity.x < -0.01f && _rigidbody.velocity.y == 0f)
+        {
+            anim.SetBool("W", true);
+        }
+        else
+        {
+            anim.SetBool("W", false);
+        }
     }
 
     private void OnMove(InputValue inputValue)
@@ -72,4 +143,33 @@ public class Movement : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Puzzle")
+        {
+            Debug.Log("Press F to enter the puzzle");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Puzzle")
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Puzzle.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Puzzle")
+        {
+            Puzzle.SetActive(false);
+        }
+    }
+
+
 }
