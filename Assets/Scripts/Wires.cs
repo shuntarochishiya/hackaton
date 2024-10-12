@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class Wires : MonoBehaviour
 {
-    public GameObject Puzzle;
+    Vector3 startPoint;
+    public SpriteRenderer wireEnd;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.tag == "Player")
-        {
-            Debug.Log("Press F to enter the puzzle");
-        }
+        startPoint = transform.parent.position + new Vector3(0, .22f, 0);
+        Debug.Log(transform.parent + ":" + startPoint);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnMouseDrag()
     {
-        if (collision.tag == "Player")
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Puzzle.SetActive(true);
-            }
-        }
+        Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        newPosition.z = 0;
+
+        transform.position = newPosition;
+
+        Vector3 direction = newPosition - startPoint;
+        transform.right = direction * transform.lossyScale.x;
+
+        float dist = Vector2.Distance(startPoint, newPosition);
+        wireEnd.size = new Vector2(dist, wireEnd.size.y);
     }
 }
