@@ -423,6 +423,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1614483393274081284, guid: b652285652b60784f902f197d2aee35d, type: 3}
   m_PrefabInstance: {fileID: 6919672182918747841}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &386430416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4228691958528752761, guid: b652285652b60784f902f197d2aee35d, type: 3}
+  m_PrefabInstance: {fileID: 1000262241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432501128
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 734492804}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 0.83921576
@@ -700,6 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -755,38 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61905b2cd4b0f6f43a36cf568a1175b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 641920898}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.0019505818, b: 0, a: 1}
-    key1: {r: 0.93856263, g: 1, b: 0, a: 1}
-    key2: {r: 0.012908457, g: 0.97735846, b: 0.1859648, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 32768
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  fill: {fileID: 1885622681}
+  _currentHealth: 0
 --- !u!114 &641920898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,6 +919,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0.034077372, y: 0.31810856}
   m_SizeDelta: {x: 1194.9321, y: 549.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &734492804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4228691958528752761, guid: b652285652b60784f902f197d2aee35d, type: 3}
+  m_PrefabInstance: {fileID: 1754308862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &875157350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1614483393274081284, guid: b652285652b60784f902f197d2aee35d, type: 3}
@@ -1001,6 +985,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 386430416}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 0.9843138
@@ -1051,6 +1039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1111,6 +1100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 386430416}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1139,7 +1132,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.017231941
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1200,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 1778121304}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -1228,7 +1226,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1242,6 +1241,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1614483393274081284, guid: b652285652b60784f902f197d2aee35d, type: 3}
   m_PrefabInstance: {fileID: 1754308862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189410410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4228691958528752761, guid: b652285652b60784f902f197d2aee35d, type: 3}
+  m_PrefabInstance: {fileID: 2068280583}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1320219497 stripped
 Transform:
@@ -1328,6 +1332,7 @@ GameObject:
   - component: {fileID: 1600650883}
   - component: {fileID: 1600650882}
   - component: {fileID: 1600650884}
+  - component: {fileID: 1600650888}
   - component: {fileID: 1600650886}
   - component: {fileID: 1600650885}
   - component: {fileID: 1600650887}
@@ -1424,10 +1429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 641920897}
-  Puzzle: {fileID: 239333877}
+  animationController: {fileID: 1600650888}
 --- !u!95 &1600650885
 Animator:
   serializedVersion: 5
@@ -1536,6 +1538,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.027362203}
   m_Size: {x: 0.28733188, y: 0.5062294}
   m_Direction: 0
+--- !u!114 &1600650888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600650878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbf8ba3dea9c4ff5a9b0e4c84defea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1600650885}
 --- !u!1001 &1604912135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1592,6 +1607,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 1189410410}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1644,7 +1663,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.63693905
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1705,6 +1725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 734492804}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 0.9981642
@@ -1733,11 +1757,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b652285652b60784f902f197d2aee35d, type: 3}
+--- !u!1 &1778121304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4228691958528752761, guid: b652285652b60784f902f197d2aee35d, type: 3}
+  m_PrefabInstance: {fileID: 1065115663}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1885622679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1904,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 1189410410}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1902,7 +1936,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.63693905
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1963,6 +1998,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158310380084757359, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 1778121304}
     - target: {fileID: 3631170094947951780, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -2003,6 +2042,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.11673987
       objectReference: {fileID: 0}
+    - target: {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
+      propertyPath: lightOn
+      value: 
+      objectReference: {fileID: 1778121304}
     - target: {fileID: 9077199550355909448, guid: b652285652b60784f902f197d2aee35d, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -2017,6 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 9018830600778813901, guid: b652285652b60784f902f197d2aee35d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
