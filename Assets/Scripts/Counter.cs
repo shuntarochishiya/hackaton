@@ -23,7 +23,6 @@ public class Counter : MonoBehaviour
         {
             solved = true;
             Invoke("destroy", 1.0f);
-            Debug.Log("Everything's done");
         }
     }
 

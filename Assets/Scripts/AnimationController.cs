@@ -18,6 +18,11 @@ public class AnimationController : MonoBehaviour
         animator.SetInteger(animationName, direction);
     }
 
+    public void AnimateObject(string animationName, bool isTrue)
+    {
+        animator.SetBool(animationName, isTrue);
+    }
+
     public static int GetDirection(Vector2 vector) {
         var normVector = vector.normalized;
 

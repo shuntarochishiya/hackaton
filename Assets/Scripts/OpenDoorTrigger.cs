@@ -1,16 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public enum KeyColor {
-    GreenKey,
-    RedKey,
-    BlueKey,
-}
-
-public class Key : MonoBehaviour
+public class OpenDoorTrigger : MonoBehaviour
 {
     [SerializeField] private KeyColor color;
+    [SerializeField] private Door door;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,9 +14,11 @@ public class Key : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            inventory.keys.Add(color);
-
-            Destroy(gameObject);
+            if (inventory.keys.Contains(color)) {
+                door.Open();
+                inventory.keys.Remove(color);
+                Destroy(gameObject);
+            }
         }
     }
 }
