@@ -16,4 +16,5 @@ class Inventory
     }
 
     public List<KeyColor> keys = new();
+    public bool hasRevolver = false;
 }

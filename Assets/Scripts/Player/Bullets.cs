@@ -8,13 +8,14 @@ public class Bullets : MonoBehaviour
 {
     private const float _speed = 30f;
     [SerializeField] public Sprite sprite;
+    [SerializeField] public GameObject revolver;
     long bulletCounter = 0;
 
     public void CreateBullet(Vector2 direction)
     {
         GameObject newGameObject = new GameObject("Bullet" + bulletCounter++);
         Bullet bullet = newGameObject.AddComponent<Bullet>();
-        bullet.Initialize(direction.normalized, gameObject.transform.position, sprite);
+        bullet.Initialize(direction.normalized, revolver.transform.position, sprite, revolver.transform);
     }
 
     class Bullet : MonoBehaviour
@@ -25,7 +26,7 @@ public class Bullets : MonoBehaviour
         private BoxCollider2D boxCollider2D;
         private DateTime creationTime;
 
-        public void Initialize(Vector2 direction, Vector2 position, Sprite sprite)
+        public void Initialize(Vector2 direction, Vector2 position, Sprite sprite, Transform transform)
         {
             this.direction = direction;
 

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public HealthSystem healthSystem;
     bool canShoot = true;
     private AnimationController animationController;
+    [SerializeField] private Animator revolverAnimator;
 
     private void Awake()
     {
@@ -53,6 +54,14 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && canShoot)
         {
+            Inventory inventory = Inventory.getInstance();
+
+            if (!inventory.hasRevolver) {
+                return;
+            }    
+            
+            revolverAnimator.SetBool("isShot", true);
+
             canShoot = false;
             Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
             bullets.CreateBullet(mousePos - _rigidbody.position);
@@ -80,9 +89,9 @@ public class Player : MonoBehaviour
     private async Task SetFalseAfter(int animationTime, int waitTime)
     {
         await Task.Delay(animationTime);
-        Debug.Log("Player shooted");
         await Task.Delay(waitTime);
         canShoot = true;
+        revolverAnimator.SetBool("isShot", false);
     }
 
     private void OnMove(InputValue inputValue)

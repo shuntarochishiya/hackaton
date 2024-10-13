@@ -19,7 +19,7 @@ public class AlianCockroach : MonoBehaviour
     private void Awake()
     {
         healthSystem = gameObject.AddComponent<HealthSystem>();
-        healthSystem.SetHealth(100);
+        healthSystem.SetHealth(20);
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -30,8 +30,17 @@ public class AlianCockroach : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var direction = (player.GetCurrentPosition() - _rigidbody.position).normalized;
+        Vector2 dist = player.GetCurrentPosition() - _rigidbody.position;
+        var inventory = Inventory.getInstance();
+
+        var direction = (dist).normalized;
+        
+        if (Math.Sqrt(dist.x * dist.x + dist.y * dist.y) >= 2 && !inventory.hasRevolver) {
+            return;
+        }
+
         _rigidbody.velocity = direction * _speed;
+
         if (_rigidbody.velocity.magnitude > float.Epsilon)
         {
             if (!walkAudio.isPlaying)
