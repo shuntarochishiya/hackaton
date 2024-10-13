@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] public Bullets bullets;
+    [SerializeField] private Camera camera;
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
     public HealthSystem healthSystem;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
         healthSystem = gameObject.AddComponent<HealthSystem>();
         healthSystem.SetHealth(30);
         _rigidbody = GetComponent<Rigidbody2D>();
+        animationController = GetComponent<AnimationController>();
     }
 
     private void Start()
@@ -30,15 +32,15 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.velocity = _movementInput * _speed;
-        animationController.AnimateObject("Direction", AnimationController.getDirection(_movementInput));
+        animationController.AnimateObject("Direction", AnimationController.GetDirection(_movementInput));
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(0) && canShoot) {
             canShoot = false;
-            Vector3 mousePos = Input.mousePosition;
-            SpamBullet((Vector2) mousePos - new Vector2(960, 540));
+            Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+            SpamBullet(mousePos - _rigidbody.position);
             SetFalseAfter(100, 1000);
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,22 +8,25 @@ public class Bullets : MonoBehaviour
 {
     private const float _speed = 30f;
     [SerializeField] public Sprite sprite;
-    [SerializeField] private Player player;
     long bulletCounter = 0;
 
-    public void CreateBullet(Vector2 direction) {
+    public void CreateBullet(Vector2 direction)
+    {
         GameObject newGameObject = new GameObject("Bullet" + bulletCounter++);
         Bullet bullet = newGameObject.AddComponent<Bullet>();
-        bullet.Initialize(direction.normalized, player.GetCurrentPosition(), sprite);
+        bullet.Initialize(direction.normalized, gameObject.transform.position, sprite);
     }
 
-    class Bullet : MonoBehaviour {
+    class Bullet : MonoBehaviour
+    {
         private Rigidbody2D _rigidbody;
         private SpriteRenderer sprite;
         private Vector2 direction;
         private BoxCollider2D boxCollider2D;
+        private DateTime creationTime;
 
-        public void Initialize(Vector2 direction, Vector2 position, Sprite sprite) {
+        public void Initialize(Vector2 direction, Vector2 position, Sprite sprite)
+        {
             this.direction = direction;
 
             this.sprite = gameObject.AddComponent<SpriteRenderer>();
@@ -37,10 +41,25 @@ public class Bullets : MonoBehaviour
             boxCollider2D.size = new Vector2(0.1f, 0.1f);
 
             gameObject.tag = "Bullet";
+
+            creationTime = DateTime.Now;
         }
 
-        public void FixedUpdate() {
+        public void FixedUpdate()
+        {
             _rigidbody.velocity = direction * _speed;
+            if (TimeSpan.Compare(DateTime.Now - creationTime, new TimeSpan(TimeSpan.TicksPerSecond)) >= 0)
+            {
+                Destroy(gameObject);
+            }
         }
-    } 
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

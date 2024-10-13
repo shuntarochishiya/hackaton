@@ -610,7 +610,6 @@ GameObject:
   - component: {fileID: 1600650883}
   - component: {fileID: 1600650882}
   - component: {fileID: 1600650884}
-  - component: {fileID: 1600650888}
   - component: {fileID: 1600650886}
   - component: {fileID: 1600650885}
   - component: {fileID: 1600650887}
@@ -661,7 +660,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &1600650883

@@ -42,8 +42,12 @@ public class AlianCockroach : MonoBehaviour
             canAttack = false;
             SetFalseAfter(100, 1000);
         }
-        if (collision.gameObject.tag == "Bullet") {
-            Destroy(collision.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
             healthSystem.TakeDamage(10);
         }
     }

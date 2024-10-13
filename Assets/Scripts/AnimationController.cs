@@ -18,7 +18,7 @@ public class AnimationController : MonoBehaviour
         animator.SetInteger(animationName, direction);
     }
 
-    public static int getDirection(Vector2 vector) {
+    public static int GetDirection(Vector2 vector) {
         var normVector = vector.normalized;
 
         if (Math.Abs(normVector.y) == 0 && Math.Abs(normVector.x) == 0)
