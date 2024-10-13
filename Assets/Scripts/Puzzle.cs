@@ -6,19 +6,10 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour
 {
     [SerializeField] private GameObject puzzle;
-    [SerializeField] Counter counter;
 
     private void Start()
     {
         puzzle.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (counter.solved)
-        {
-            Destroy(this);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +33,7 @@ public class Puzzle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && puzzle != null)
         {
             puzzle.SetActive(false);
         }
