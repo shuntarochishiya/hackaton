@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] public Bullets bullets;
     [SerializeField] private Camera camera;
+    [SerializeField] private AudioSource walkAudio;
+    [SerializeField] private AudioSource gunShootAudio;
+    [SerializeField] private AudioSource takeDamageAudio;
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
     public HealthSystem healthSystem;
@@ -32,15 +35,28 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.velocity = _movementInput * _speed;
+        if (Math.Abs(_movementInput.x) > float.Epsilon || Math.Abs(_movementInput.y) > float.Epsilon)
+        {
+            if (!walkAudio.isPlaying)
+            {
+                walkAudio.Play();
+            }
+        } 
+        else 
+        {
+            walkAudio.Stop();
+        }
         animationController.AnimateObject("Direction", AnimationController.GetDirection(_movementInput));
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && canShoot) {
+        if (Input.GetMouseButton(0) && canShoot)
+        {
             canShoot = false;
             Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-            SpamBullet(mousePos - _rigidbody.position);
+            bullets.CreateBullet(mousePos - _rigidbody.position);
+            gunShootAudio.Play();
             SetFalseAfter(100, 1000);
         }
 
@@ -51,11 +67,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void SpamBullet(Vector2 direction) {
-        bullets.CreateBullet(direction);
+    public void TakeDamage(int value) {
+        healthSystem.TakeDamage(value);
+        takeDamageAudio.Play();
     }
 
-    public Vector2 GetCurrentPosition() {
+    public Vector2 GetCurrentPosition()
+    {
         return _rigidbody.position;
     }
 
