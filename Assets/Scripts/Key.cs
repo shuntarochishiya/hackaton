@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum KeyColor {
+    GreenKey,
+    RedKey,
+    BlueKey,
+}
+
 public class Key : MonoBehaviour
 {
-    public GameObject doorCollider;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        doorCollider.SetActive(true);  
-    }
+    [SerializeField] private KeyColor color;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        Inventory inventory = Inventory.getInstance();
+
+        if (collision.CompareTag("Player"))
         {
-            doorCollider.SetActive(false);
+            inventory.keys.Add(color);
+
             Destroy(gameObject);
         }
     }

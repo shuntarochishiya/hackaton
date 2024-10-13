@@ -8,15 +8,10 @@ using UnityEngine.UI;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int _currentHealth;
-    // [SerializeField] private Slider _healthSlider;
-    // [SerializeField] private Gradient _gradient;
-    // [SerializeField] private Image _fill;
 
     public void SetHealth(int health)
     {
         _currentHealth = Math.Max(0, health);
-        // _healthSlider.value = _currentHealth;
-        // _fill.color = _gradient.Evaluate(_healthSlider.normalizedValue);
     }
 
     public void TakeDamage(int damage)

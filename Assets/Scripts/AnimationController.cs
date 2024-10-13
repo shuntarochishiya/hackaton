@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-
     // 0 - up
     // 2 - right
     // 4 - down
@@ -19,7 +18,12 @@ public class AnimationController : MonoBehaviour
         animator.SetInteger(animationName, direction);
     }
 
-    public static int getDirection(Vector2 vector) {
+    public void AnimateObject(string animationName, bool isTrue)
+    {
+        animator.SetBool(animationName, isTrue);
+    }
+
+    public static int GetDirection(Vector2 vector) {
         var normVector = vector.normalized;
 
         if (Math.Abs(normVector.y) == 0 && Math.Abs(normVector.x) == 0)
