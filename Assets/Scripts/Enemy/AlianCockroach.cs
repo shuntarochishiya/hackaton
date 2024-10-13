@@ -11,6 +11,7 @@ public class AlianCockroach : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private AnimationController animationController;
     [SerializeField] private AnimationController attack;
+    [SerializeField] private AudioSource walkAudio;
     private Rigidbody2D _rigidbody;
     public HealthSystem healthSystem;
     private bool canAttack = true;
@@ -31,6 +32,17 @@ public class AlianCockroach : MonoBehaviour
     {
         var direction = (player.GetCurrentPosition() - _rigidbody.position).normalized;
         _rigidbody.velocity = direction * _speed;
+        if (_rigidbody.velocity.magnitude > float.Epsilon)
+        {
+            if (!walkAudio.isPlaying)
+            {
+                walkAudio.Play();
+            }
+        }
+        else
+        {
+            walkAudio.Stop();
+        }
         animationController.animator.SetInteger("Direction", AnimationController.GetDirection(direction));
     }
 
@@ -42,7 +54,12 @@ public class AlianCockroach : MonoBehaviour
             canAttack = false;
             SetFalseAfter(100, 1000);
         }
-        if (collision.gameObject.tag == "Bullet") {
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
             Destroy(collision.gameObject);
             healthSystem.TakeDamage(10);
         }
