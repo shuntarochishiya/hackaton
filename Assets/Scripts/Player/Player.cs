@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
             if (!inventory.hasRevolver) {
                 return;
             }    
-            
+
             revolverAnimator.SetBool("isShot", true);
 
             canShoot = false;
@@ -72,7 +72,8 @@ public class Player : MonoBehaviour
         if (healthSystem.GetHealth() == 0)
         {
             Debug.Log("Dead");
-            Destroy(gameObject);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 

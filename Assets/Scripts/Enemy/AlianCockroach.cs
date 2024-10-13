@@ -35,7 +35,7 @@ public class AlianCockroach : MonoBehaviour
 
         var direction = (dist).normalized;
         
-        if (Math.Sqrt(dist.x * dist.x + dist.y * dist.y) >= 2 && !inventory.hasRevolver) {
+        if (Math.Sqrt(dist.x * dist.x + dist.y * dist.y) >= 2 && !inventory.hasRevolver || player.healthSystem.GetHealth() <= 0) {
             return;
         }
 
