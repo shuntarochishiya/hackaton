@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private Vector2 _movementInput;
     public HealthSystem healthSystem;
     bool canShoot = true;
-    [SerializeField] private AnimationController animationController;
+    private AnimationController animationController;
 
     private void Awake()
     {
