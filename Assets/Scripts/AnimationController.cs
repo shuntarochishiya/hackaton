@@ -3,19 +3,14 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void AnimateObject(string animationName, int direction)
-    {
-        animator.SetInteger(animationName, direction);
-    }
-
-    public static int getDirection(Vector2 vector) {
+    public static int GetDirection(Vector2 vector) {
         var normVector = vector.normalized;
         if (Math.Abs(normVector.y) > Math.Abs(normVector.x)) {
             if (normVector.y > 0) {
