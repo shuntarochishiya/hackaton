@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -1.2857144}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 220
       width: 64
-      height: 64
+      height: 28
     spriteID: ce16b8af68b044eddb725d430c0038bc
     spriteBone: []
     spriteOutline: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 220}
   - name: Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -149,7 +149,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 76
+      y: 4
       width: 64
       height: 64
     spriteID: 8debf8aac6d4948078775c6b019ef264
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 76}
+    uvTransform: {x: 4, y: 4}
   - name: Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -169,7 +169,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 148
+      y: 76
       width: 64
       height: 64
     spriteID: 1c4895ca596014f6caafeea52fa1355a
@@ -180,7 +180,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 148}
+    uvTransform: {x: 4, y: 76}
   - name: Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -188,8 +188,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 76
-      y: 4
+      x: 4
+      y: 148
       width: 64
       height: 64
     spriteID: ecdb434ea14d548abac4d2717b95c12e
@@ -200,7 +200,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 76, y: 4}
+    uvTransform: {x: 4, y: 148}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -215,9 +215,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 0
+        y: 36
         width: 64
-        height: 64
+        height: 28
       spriteId: ce16b8af68b044eddb725d430c0038bc
     - name: Frame_1
       frameIndex: 1

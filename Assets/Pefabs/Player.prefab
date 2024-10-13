@@ -211,7 +211,6 @@ MonoBehaviour:
   gunShootAudio: {fileID: 4379315079596957809}
   takeDamageAudio: {fileID: 5501497553245083803}
   healthSystem: {fileID: 0}
-  animationController: {fileID: 0}
 --- !u!212 &7375696309210702445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -261,7 +260,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &6053943844628208310
