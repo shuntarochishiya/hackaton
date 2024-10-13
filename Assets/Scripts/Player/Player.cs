@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
     private HealthSystem _healthSystem;
-    [SerializeField] private AnimationController animationController;
+    private AnimationController animationController;
 
 
     private void Awake()
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
         _healthSystem = gameObject.AddComponent<HealthSystem>();
         _healthSystem.SetHealth(100);
         _rigidbody = GetComponent<Rigidbody2D>();
+        animationController = GetComponent<AnimationController>();
     }
 
     private void Start()
