@@ -42,12 +42,8 @@ public class AlianCockroach : MonoBehaviour
             canAttack = false;
             SetFalseAfter(100, 1000);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) 
-    {
-        if (collision.gameObject.tag == "Bullet")
-        {
+        if (collision.gameObject.tag == "Bullet") {
+            Destroy(collision.gameObject);
             healthSystem.TakeDamage(10);
         }
     }
@@ -64,7 +60,7 @@ public class AlianCockroach : MonoBehaviour
     {
         await Task.Delay(animationTime);
         attack.animator.SetBool("isAttack", false);
-        player.healthSystem.TakeDamage(10);
+        player.TakeDamage(10);
         Debug.Log("Player health: " + player.healthSystem.GetHealth());
         await Task.Delay(waitTime);
         canAttack = true;
